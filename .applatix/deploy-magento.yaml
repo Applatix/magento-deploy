@@ -7,7 +7,7 @@ container:
     mem_mib: 1024
     cpu_cores: 0.3
   image: "mageinferno/magento2-nginx:1.11-1"
-  docker_options: -e MYSQL_ROOT_PASSWORD=wordpress -e MYSQL_DATABASE=wordpress -e MYSQL_USER=wordpress -e MYSQL_PASSWORD=wordpress
+  docker_options:
   readiness_probe:
     exec:
       command: "%%PROBE_CMD%%"
@@ -210,7 +210,7 @@ inputs:
     domain:
       default: "demo.applatix.net"
 steps:
-  - checkout:
+   - checkout:
       template: axscm-checkout
    - deploy-nginx:
       template: nginx-deployment-container
@@ -220,11 +220,11 @@ steps:
       template: php-deployment-container
       parameters:
         code: "%%steps.checkout.code%%"  
-  - deploy-db:
+   - deploy-db:
       template: database-deployment-container
       parameters:
         code: "%%steps.checkout.code%%"  
-  - deploy-setup:
+   - deploy-setup:
       template: setup-deployment
       parameters:
         code: "%%steps.checkout.code%%"      
