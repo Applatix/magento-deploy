@@ -4,7 +4,7 @@ subtype: container
 name: nginx-deployment-container
 container:
   resources:
-    mem_mib: 1024
+    mem_mib: 750
     cpu_cores: 0.3
   image: "mageinferno/magento2-nginx:1.11-1"
   docker_options:
@@ -36,7 +36,7 @@ subtype: container
 name: php-deployment-container
 container:
   resources:
-    mem_mib: 1024
+    mem_mib: 750
     cpu_cores: 0.3
   image: "mageinferno/magento2-php:7.0-fpm-1"
   docker_options: -e MYSQL_ROOT_PASSWORD=wordpress -e MYSQL_DATABASE=wordpress -e MYSQL_USER=wordpress -e MYSQL_PASSWORD=wordpress
@@ -68,7 +68,7 @@ subtype: container
 name: database-deployment-container
 container:
   resources:
-    mem_mib: 750
+    mem_mib: 1024
     cpu_cores: 0.5
   image: "percona:5.7"
   docker_options: -e MYSQL_ROOT_PASSWORD=magento2 -e MYSQL_DATABASE=magento2 -e MYSQL_USER=magento2 -e MYSQL_PASSWORD=magento2
