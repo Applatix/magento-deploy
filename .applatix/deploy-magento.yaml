@@ -7,24 +7,6 @@ container:
     mem_mib: 750
     cpu_cores: 0.3
   image: "mageinferno/magento2-nginx:1.11-1"
-  readiness_probe:
-    exec:
-      command: "%%PROBE_CMD%%"
-    initial_delay_seconds: 30
-    timeout_seconds: 5
-  liveness_probe:
-    exec:
-      command: "%%PROBE_CMD%%"
-    initial_delay_seconds: 30
-    timeout_seconds: 5
-inputs:
-  artifacts:
-    - from: "%%code%%"
-      path: "/src"
-  parameters:
-    code:
-    PROBE_CMD:
-      default: sh -c 'ls -l /src'
 labels:
   "release": "M7"
 ---
