@@ -7,7 +7,6 @@ container:
     mem_mib: 750
     cpu_cores: 0.3
   image: "mageinferno/magento2-nginx:1.11-1"
-  docker_options:
   readiness_probe:
     exec:
       command: "%%PROBE_CMD%%"
@@ -172,7 +171,7 @@ inputs:
     code:
       default: "%%session.artifacts%%"
     appname:
-      default: "magento-app"
+      default: "mg-deploy"
     domain:
       default: "demo.applatix.net"
 application:
@@ -206,7 +205,7 @@ inputs:
     repo:
       default: "%%session.repo%%"
     appname:
-      default: "%%session.app%%"
+      default: "mg-deploy%"
     domain:
       default: "demo.applatix.net"
 steps:
