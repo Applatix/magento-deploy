@@ -1,6 +1,5 @@
 ---
-type: service_template
-subtype: container
+type: container
 name: nginx-deployment-container
 container:
   resources:
@@ -30,8 +29,7 @@ labels:
 ---
 
 ---
-type: service_template
-subtype: container
+type: container
 name: php-deployment-container
 container:
   resources:
@@ -62,8 +60,7 @@ labels:
 ---
 
 ---
-type: service_template
-subtype: container
+type: container
 name: database-deployment-container
 container:
   resources:
@@ -93,8 +90,7 @@ labels:
   "release": "M7"
 
 ---
-type: service_template
-subtype: container
+type: container
 name: setup-deployment
 container:
   resources:
@@ -125,8 +121,7 @@ inputs:
 labels:
   "release": "M7"
 ---
-type: service_template
-subtype: deployment
+type: deployment
 name: magento-deploy-mysql
 inputs:
   parameters:
@@ -163,8 +158,7 @@ containers:
         PROBE_CMD: sh -c 'ls -l /src'
        
 ---
-type: service_template
-subtype: deployment
+type: deployment
 name: deploy-magento
 inputs:
   parameters:
@@ -195,8 +189,7 @@ containers:
         PROBE_CMD: sh -c 'ls -l /src'
 
 ---
-type: service_template
-subtype: workflow
+type: workflow
 name: magento-deployment-workflow
 inputs:
   parameters:
