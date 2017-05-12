@@ -2,19 +2,22 @@
 type: container
 name: axscm-checkout
 description: Checks out a source repository to /src
+
 container:
+  image: get.applatix.io/applatix/axscm:v2.0
+  command: "axscm clone %%repo%% /src --commit %%commit%%"
   resources:
     mem_mib: 256
-    cpu_cores: 0.1
-  image: get.applatix.io/applatix/axscm:v1.1
-  docker_options: ''
-  command: "axscm clone %%repo%% /src --commit %%commit%%"
+    cpu_cores: 0.2
+
+
 inputs:
   parameters:
     commit:
       default: "%%session.commit%%"
     repo:
       default: "%%session.repo%%"
+
 outputs:
   artifacts:
     code:
